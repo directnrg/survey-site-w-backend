@@ -5,7 +5,7 @@
  */
 
 var app = require('./server/config/app');
-var debug = require('debug')('multiverse-survey:server');
+var debug = require('debug')('http:server');
 var http = require('http');
 
 //environment variables
