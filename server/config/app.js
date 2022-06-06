@@ -10,7 +10,7 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let cors = require('cors');
-let favicon = require('serve-favicon');
+//let favicon = require('serve-favicon');
 
 
 //Modules for authentication
@@ -62,7 +62,7 @@ app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 // custom favicon setup
-app.use(favicon(path.join(__dirname,'../../public/Assets/images/', 'Multiverse_icon.png')));
+//app.use(favicon(path.join(__dirname,'../../public/Assets/images/', 'Multiverse_icon.png')));
 
 //setup express session
 app.use(session({
