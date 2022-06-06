@@ -2,6 +2,9 @@
   "name": "multiverse-design-surveys",
   "version": "0.0.1",
   "description": "Multiverse design survey project - team 3",
+  "engines": {
+    "node": "12.11.1"
+    },
   "main": "server.js",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
@@ -33,7 +36,7 @@
     "@types/jsonwebtoken": "^8.5.6",
     "@types/passport-jwt": "^3.0.6",
     "mongoose": "^6.0.12",
-    "node": "^17.1.0"
+    "node": "^17.7.2"
   },
   "scripts": {
     "start": "node server.js"
