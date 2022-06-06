@@ -1,0 +1,88 @@
+<div class="container">
+    <!-- message area -->
+    <% if(messages.length > 0) { %>
+    <div id="messageArea" class="alert alert-danger"><%= messages %></div>
+    <% } %>
+    <br />
+    <br />
+    <!-- form area -->
+    <form class="form-horizontal" method="POST" id="registerForm">
+        <h3 class="hint-text text-center mainTitles">
+            Creating an account is simple.<br />
+            Start creating surveys in less than a minute.
+            <i class="far fa-smile-wink"></i>
+        </h3>
+        <br />
+        <div class="mx-auto">
+            <div class="form-group mx-auto">
+                <p class="lead mainTitles text-center">
+                    <i class="fas fa-user-secret"></i> Personal Information
+                </p>
+                <br />
+                <div class="col-sm-10 mx-auto">
+                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <br />
+                <div class="col-sm-10 mx-auto">
+                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <br />
+                <div class="col-sm-10 mx-auto">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter E-mail"
+                        required />
+                </div>
+            </div>
+            <br />
+            <div class="form-group mx-auto">
+                <p class="lead mainTitles text-center">
+                        <i class="fas fa-user-shield"></i> System Identification
+                    </p>
+                    <br />
+                    <div class="col-sm-10 mx-auto">
+                        <input type="text" class="form-control" id="username" name="username"
+                            placeholder="Enter a User Name" required />
+                    </div>
+            </div>
+            <div class="form-group">
+                <br />
+                <div class="col-sm-10 mx-auto">
+                    <input type="password" class="form-control" id="password" name="password"
+                        placeholder="Enter a password" required />
+                </div>
+            </div>
+            <!--//TODO optional implementation to check if password matches-->
+            <!--<div class="form-group">
+            <br />
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="confirmPassword" name="password"
+                    placeholder="Confirm password" required value="" />
+            </div>
+        </div>-->
+            <br />
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10 mx-auto">
+                    <button type="submit" id="registerSubmitButton" name="registerSubmitButton"
+                        class="btn btn-dark">Register</button>
+
+                    <button id="cancelButton" class="btn btn-warning" type="reset">Cancel <i
+                            class="fas fa-undo fa-lg"></i>
+                    </button>
+                    </a>
+                </div>
+            </div>
+            <p class="text-center text-muted small">
+                Already have an account?
+                <a href="/user/login">Sign in</a>
+            </p>
+        </div>
+    </form>
+</div>
+<br />
+<br />
+<br />

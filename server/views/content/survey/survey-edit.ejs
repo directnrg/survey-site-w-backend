@@ -1,0 +1,64 @@
+  <!-- Shahriar -->
+  <div class="container">
+    <div class="row">
+      <div class="offset-md-3 col-md-6">
+        <h1 style="color: white;">Edit Survey</h1>
+        <form class="form" method="POST">
+          <div class="form-group">
+            <label style="color: white;" for="NameTextField">Title</label>
+            <input type="text" class="form-control" id="NameTextField" placeholder="Survey Name" name="surveyName"
+              value="<%= survey.surveyName %>" required>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label style="color: white;" for="">Survey Start Date</label>
+            <input type="date" class="" id="" placeholder="Survey start date" name="startdate"
+              value="<%= survey.startDate.toISOString().substr(0, 10) %>" required>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label style="color: white;" for="">Survey End Date</label>
+            <input type="date" class="" id="" placeholder="Survey end date" name="enddate"
+              value="<%= survey.endDate.toISOString().substr(0, 10) %>" required>
+          </div>
+
+          <div class="form-group">
+            <label style="color: white;" for="NameTextField">Question #1</label>
+            <input type="text" class="form-control" id="" placeholder="Question #1" name="q1"
+              value="<%= survey.question[0] %>" required>
+          </div>
+
+          <div class="form-group">
+            <label style="color: white;" for="NameTextField">Question #2</label>
+            <input type="text" class="form-control" id="" placeholder="Question #2" name="q2"
+              value="<%= survey.question[1] %>" required>
+          </div>
+
+          <div class="form-group">
+            <label style="color: white;" for="NameTextField">Question #3</label>
+            <input type="text" class="form-control" id="" placeholder="Question #3" name="q3"
+              value="<%= survey.question[2] %>" required>
+          </div>
+
+          <div class="form-group">
+            <label style="color: white;" for="NameTextField">Question #4</label>
+            <input type="text" class="form-control" id="" placeholder="Question #4" name="q4"
+              value="<%= survey.question[3] %>" required>
+          </div>
+
+          <div class="form-group">
+            <label style="color: white;" for="NameTextField">Question #5</label>
+            <input type="text" class="form-control" id="NameTextField" placeholder="Question #5" name="q5"
+              value="<%= survey.question[4] %>" required>
+          </div>
+
+          <button class="btn btn-primary " type="submit">
+            <i class="fas fa-edit"></i> Submit</button>
+
+          <a href="/home" class="btn btn-warning">
+            <i class="fas fa-undo"></i> Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br /><br /><br />

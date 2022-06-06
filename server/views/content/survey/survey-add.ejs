@@ -1,0 +1,74 @@
+<!-- Shahriar -->
+<div class="container">
+  <div class="row">
+    <div class="offset-md-3 col-md-6">
+      <h3 style="color: white;">New Survey Questions</h3>
+      <form class="form" method="POST">
+        <div class="form-group">
+          <label style="color: white;" class="h5" for="NameTextField">Please name the new survey. Name must be
+            unique.<span style="color: red">*</span> </label>
+          <input type="text" class="form-control" id="NameTextField" placeholder="Survey Name" name="surveyName"
+            value="" required>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="surveytype" id="inlineRadio1" value="True/False"
+            checked=true>
+          <label style="color: white;" class="form-check-label" for="inlineRadio1">True/False</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="surveytype" id="inlineRadio2" value="Scale">
+          <label style="color: white;" class="form-check-label" for="inlineRadio2">Scale</label>
+        </div>
+
+        <!-- survey creator section to identify the creator of survey-->
+
+        <% if(typeof displayName=='string' && displayName) {%>
+        <div class="form-group">
+          <label style="color: white;" for="CreatorTextField">Survey Creator</label>
+          <input type="text" class="form-control" id="displayName" placeholder="<%= displayName %>" name="displayName"
+            value="<%= displayName %>" required readonly>
+        </div>
+        <% } %>
+
+        <!-- setting start date / end date -->
+        <script>
+          $("date").on("change", function () {
+            this.setAttribute(
+              "data-date",
+              moment(this.value, "YYYY-MM-DD").local().format(this.getAttribute("data-date-format"))
+            )
+          }).trigger("change")
+        </script>
+
+        <!--placeholder="Survey start date"-->
+        <div class="form-group col-md-3">
+          <label style="color: white;" class="h6">Survey Start Date<span style="color: red">*</span> </label>
+          <input type="date" class="date" id="" placeholder="yyyy-mm-dd" name="startdate" value="" data-date=""
+            required>
+        </div>
+
+
+        <div class="form-group col-md-3">
+          <label style="color: white;" class="h6" for="">Survey End Date<span style="color: red">*</span></label>
+          <input type="date" class="date" id="" placeholder="Survey end date" name="enddate" value="" required>
+        </div>
+
+        <% for (i=1; i < 6; i++) { %>
+        <div class="form-group">
+          <input type="text" class="form-control" id="" placeholder="Question<%= i %>" name="q<%= i %>" value=""
+            required>
+        </div>
+        <% } %>
+
+        <button class="btn btn-primary " type="submit">
+          <i class="fas fa-edit"></i> Submit</button>
+
+        <a href="/surveys" class="btn btn-warning">
+          <i class="fas fa-undo"></i> Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
+<br>
+<br>

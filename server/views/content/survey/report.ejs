@@ -1,0 +1,368 @@
+<!-- Shahriar -->
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <h1 style="color: white; margin-left: 100px; margin-top: 50px">Survey: <%= title %></h1>
+
+      <a href="#" class="btn btn-primary" style="margin-top: 50px; margin-left: 100px" role="button"
+        onclick="ExportToExcel('xlsx')">
+        <i class="fas fa-file-excel"></i> Export To Excel</a>
+      <table id="report_table" class="table table-bordered border-primary ghost"
+        style="background-color: black; color: white; margin-top: 20px; margin-left: 100px">
+        <tr>
+          <% if ( survey.surveyType == "True/False" ) { %>
+          <th class="text-center col-6">Question</th>
+          <th class="text-center col-2">True</th>
+          <th class="text-center col-2">False</th>
+          <% } %>
+          <% if ( survey.surveyType == "Scale" ) { %>
+          <th class="text-center col-6">Question</th>
+          <th class="text-center col-1">Very Bad</th>
+          <th class="text-center col-1">Bad</th>
+          <th class="text-center col-1">Good</th>
+          <th class="text-center col-2">Very Good</th>
+          <th class="text-center col-2">Excellent</th>
+          <% } %>
+
+        </tr>
+
+        <% if ( votes > 0)  { %>
+        <% for (i=0; i < survey.question.length; i++ ) { %>
+        <tr>
+          <% if ( survey.surveyType == "True/False" ) { %>
+          <td class="text-center col-6"><%= survey.question[i] %></td>
+          <td class="text-center col-2"><%= trueAnswer[i] %></td>
+          <td class="text-center col-2"><%= falseAnswer[i] %></td>
+          <% } %>
+          <% if ( survey.surveyType == "Scale" ) { %>
+          <td class="text-center col-6"><%= survey.question[i] %></td>
+          <td class="text-center col-1"><%= veryBad[i] %></td>
+          <td class="text-center col-1"><%= bad[i] %></td>
+          <td class="text-center col-1"><%= good[i] %></td>
+          <td class="text-center col-2"><%= veryGood[i] %></td>
+          <td class="text-center col-2"><%= excellent[i] %></td>
+
+          <% } %>
+        </tr>
+        <% } %>
+        <% } %>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Scale survey -->
+
+<% if ( survey.surveyType == "Scale" ) { %>
+
+<div class="row">
+  <div class="col">
+
+    <div class="container" style="position: relative; height:10vh; width:20vw; margin-bottom: 300px; margin-top: 50px;">
+      <h5 style="color: white">Question 1</h5>
+      <canvas style="background-color: black; border: 2px solid #1663be;" id="myChart1"></canvas>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="container" style="position: relative; height:10vh; width:20vw; margin-bottom: 300px; margin-top: 50px;">
+      <h5 style="color: white">Question 2</h5>
+      <canvas style="background-color: black; border: 2px solid #1663be;" id="myChart2"></canvas>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="container" style="position: relative; height:10vh; width:20vw; margin-bottom: 300px; margin-top: 50px;">
+      <h5 style="color: white">Question 3</h5>
+      <canvas style="background-color: black; border: 2px solid #1663be;" id="myChart3"></canvas>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="container" style="position: relative; height:10vh; width:20vw; margin-bottom: 200px; margin-top: 50px;">
+      <h5 style="color: white">Question 4</h5>
+      <canvas style="background-color: black; border: 2px solid #1663be;" id="myChart4"></canvas>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="container" style="height:10vh; width:20vw; margin-bottom: 200px; margin-top: 50px;">
+      <h5 style="color: white">Question 5</h5>
+      <canvas style="background-color: black; border: 2px solid #1663be;" id="myChart5"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+  let ctx1 = document.getElementById('myChart1').getContext('2d');
+  let myChart1 = new Chart(ctx1, {
+    type: 'pie',
+    data: {
+      labels: ['Very Bad', 'Bad', 'Good', 'Very Good', 'Excelent'],
+      datasets: [{
+        data: [ <%= veryBad[0] %> , <%= bad[0] %> , <%= good[0] %> , <%= veryGood[0] %> , <%=
+          excellent[0] %>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132)',
+          'rgba(255, 205, 86)',
+          'rgba(54, 162, 235)',
+          'rgba(128,0,128)',
+          'rgba(0,255,127)'
+        ],
+        borderWidth: 5,
+        borderColor: 'rgba(0, 0, 0)',
+        hoverOffset: 8,
+      }]
+    },
+    options: {
+
+    }
+  });
+
+  let ctx2 = document.getElementById('myChart2').getContext('2d');
+  let myChart2 = new Chart(ctx2, {
+    type: 'pie',
+    data: {
+      labels: ['Very Bad', 'Bad', 'Good', 'Very Good', 'Excelent'],
+      datasets: [{
+        data: [ <%= veryBad[1] %> , <%= bad[1] %> , <%= good[1] %> , <%= veryGood[1] %> , <%=
+          excellent[1] %>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132)',
+          'rgba(255, 205, 86)',
+          'rgba(54, 162, 235)',
+          'rgba(128,0,128)',
+          'rgba(0,255,127)'
+        ],
+        borderWidth: 5,
+        borderColor: 'rgba(0, 0, 0)',
+        hoverOffset: 8
+      }]
+    },
+    options: {}
+  });
+
+  let ctx3 = document.getElementById('myChart3').getContext('2d');
+  let myChart3 = new Chart(ctx3, {
+    type: 'pie',
+    data: {
+      labels: ['Very Bad', 'Bad', 'Good', 'Very Good', 'Excelent'],
+      datasets: [{
+        data: [ <%= veryBad[2] %> , <%= bad[2] %> , <%= good[2] %> , <%= veryGood[2] %> , <%=
+          excellent[2] %>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132)',
+          'rgba(255, 205, 86)',
+          'rgba(54, 162, 235)',
+          'rgba(128,0,128)',
+          'rgba(0,255,127)'
+        ],
+        borderWidth: 5,
+        borderColor: 'rgba(0, 0, 0)',
+        hoverOffset: 8
+      }]
+    },
+    options: {}
+  });
+
+  let ctx4 = document.getElementById('myChart4').getContext('2d');
+  let myChart4 = new Chart(ctx4, {
+    type: 'pie',
+    data: {
+      labels: ['Very Bad', 'Bad', 'Good', 'Very Good', 'Excelent'],
+      datasets: [{
+        data: [ <%= veryBad[3] %> , <%= bad[3] %> , <%= good[3] %> , <%= veryGood[3] %> , <%=
+          excellent[3] %>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132)',
+          'rgba(255, 205, 86)',
+          'rgba(54, 162, 235)',
+          'rgba(128,0,128)',
+          'rgba(0,255,127)'
+        ],
+        borderWidth: 5,
+        borderColor: 'rgba(0, 0, 0)',
+        hoverOffset: 8
+      }]
+    },
+    options: {}
+  });
+
+  let ctx5 = document.getElementById('myChart5').getContext('2d');
+  let myChart5 = new Chart(ctx5, {
+    type: 'pie',
+    data: {
+      labels: ['Very Bad', 'Bad', 'Good', 'Very Good', 'Excelent'],
+      datasets: [{
+        data: [ <%= veryBad[4] %> , <%= bad[4] %> , <%= good[4] %> , <%= veryGood[4] %> , <%=
+          excellent[4] %>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132)',
+          'rgba(255, 205, 86)',
+          'rgba(54, 162, 235)',
+          'rgba(128,0,128)',
+          'rgba(0,255,127)'
+        ],
+        borderWidth: 5,
+        borderColor: 'rgba(0, 0, 0)',
+        hoverOffset: 8
+      }]
+    },
+    options: {}
+  });
+</script>
+
+<!-- True/False survey -->
+
+<% } else { %>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="container"
+        style="position: relative; height:10vh; width:20vw; margin-bottom: 300px; margin-top: 50px;">
+        <h5 style="color: white">Question 1</h5>
+        <canvas style="background-color: black; border: 2px solid #1663be;" id="Chart1"></canvas>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="container"
+        style="position: relative; height:10vh; width:20vw; margin-bottom: 300px; margin-top: 50px;">
+        <h5 style="color: white">Question 2</h5>
+        <canvas style="background-color: black; border: 2px solid #1663be;" id="Chart2"></canvas>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="container"
+        style="position: relative; height:10vh; width:20vw; margin-bottom: 300px; margin-top: 50px;">
+        <h5 style="color: white">Question 3</h5>
+        <canvas style="background-color: black; border: 2px solid #1663be;" id="Chart3"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="container" style="position: relative; height:10vh; width:20vw; margin-bottom: 200px; ">
+        <h5 style="color: white">Question 4</h5>
+        <canvas style="background-color: black; border: 2px solid #1663be;" id="Chart4"></canvas>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="container" style="height:10vh; width:20vw; margin-bottom: 200px; ">
+        <h5 style="color: white">Question 5</h5>
+        <canvas style="background-color: black; border: 2px solid #1663be;" id="Chart5"></canvas>
+      </div>
+    </div>
+  </div>
+  <script>
+    let ctx11 = document.getElementById('Chart1').getContext('2d');
+    let Chart1 = new Chart(ctx11, {
+      type: 'pie',
+      data: {
+        labels: ['True', 'False'],
+        datasets: [{
+          data: [ <%= trueAnswer[0] %> , <%= falseAnswer[0] %> ],
+          backgroundColor: [
+            'rgba(255, 99, 132)',
+            'rgba(0,255,127)'
+          ],
+          borderWidth: 5,
+          borderColor: 'rgba(0, 0, 0)',
+          hoverOffset: 8
+        }]
+      },
+      options: {}
+    });
+
+    let ctx22 = document.getElementById('Chart2').getContext('2d');
+    let Chart2 = new Chart(ctx22, {
+      type: 'pie',
+      data: {
+        labels: ['True', 'False'],
+        datasets: [{
+          data: [ <%= trueAnswer[1] %> , <%= falseAnswer[1] %> ],
+          backgroundColor: [
+            'rgba(255, 99, 132)',
+            'rgba(0,255,127)'
+          ],
+          borderWidth: 5,
+          borderColor: 'rgba(0, 0, 0)',
+          hoverOffset: 8,
+        }]
+      },
+      options: {
+
+      }
+    });
+
+    let ctx33 = document.getElementById('Chart3').getContext('2d');
+    let Chart3 = new Chart(ctx33, {
+      type: 'pie',
+      data: {
+        labels: ['True', 'False'],
+        datasets: [{
+          data: [ <%= trueAnswer[2] %> , <%= falseAnswer[2] %> ],
+          backgroundColor: [
+            'rgba(255, 99, 132)',
+            'rgba(0,255,127)'
+          ],
+          borderWidth: 5,
+          borderColor: 'rgba(0, 0, 0)',
+          hoverOffset: 8
+        }]
+      },
+      options: {}
+    });
+
+    let ctx44 = document.getElementById('Chart4').getContext('2d');
+    let Chart4 = new Chart(ctx44, {
+      type: 'pie',
+      data: {
+        labels: ['True', 'False'],
+        datasets: [{
+          data: [ <%= trueAnswer[3] %> , <%= falseAnswer[3] %> ],
+          backgroundColor: [
+            'rgba(255, 99, 132)',
+            'rgba(0,255,127)'
+          ],
+          borderWidth: 5,
+          borderColor: 'rgba(0, 0, 0)',
+          hoverOffset: 8
+        }]
+      },
+      options: {}
+    });
+
+    let ctx55 = document.getElementById('Chart5').getContext('2d');
+    let Chart5 = new Chart(ctx55, {
+      type: 'pie',
+      data: {
+        labels: ['True', 'False'],
+        datasets: [{
+          data: [ <%= trueAnswer[4] %> , <%= falseAnswer[4] %> ],
+          backgroundColor: [
+            'rgba(255, 99, 132)',
+            'rgba(0,255,127)'
+          ],
+          borderWidth: 5,
+          borderColor: 'rgba(0, 0, 0)',
+          hoverOffset: 8
+        }]
+      },
+      options: {}
+    });
+  </script>
+  <% } %>
+</div>

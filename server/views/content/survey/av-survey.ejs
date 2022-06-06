@@ -1,0 +1,84 @@
+<!-- Shahriar-->
+<!-- Content for the survey view page -->
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <!--<h1><%= title %></h1>-->
+      <form class="form" method="POST">
+        <div class="form-group">
+          <!--label-- for="NameTextField">Title</!--label-->
+          <h1 style="color: white; margin-top: 80px; margin-bottom: 80px; margin-left: 100px;"><%= title %></h1>
+
+          <% for (i=0; i < 5; i++) { %>
+
+          <div class="row justify-content-center">
+            <div style="color: white; margin-top: 50px;" class="h5 p-1 bd-highlight text-center">
+              <%= survey.question[i] %></div>
+
+
+            <% if ( survey.surveyType == "True/False") { %>
+            <div class="col-6">
+              <div class="card-body" style="border-radius: 15px 50px; background-color: grey;">
+                <div class="row justify-content-around">
+                  <div class="col-2" style="margin-left: 100px">
+                    <div class="form-check form-check-inline">
+                      <input type="radio" class="btn-check" name="a<%= i %>" id="radio1-<%= i %>" value="true"
+                        autocomplete="off">
+                      <label class="btn btn-outline-dark" for="radio1-<%= i %>">True</label>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-check form-check-inline">
+                      <input type="radio" class="btn-check" name="a<%= i %>" id="radio2-<%= i %>" value="false"
+                        autocomplete="off">
+                      <label class="btn btn-outline-dark" for="radio2-<%= i %>">False</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% } %>
+
+            <% if ( survey.surveyType == "Scale") { %>
+            <% let scale = ['very bad','bad', 'good', 'very good', 'excellent'] %>
+            <div class="form-check">
+              <div class="card-body" style="border-radius: 15px 50px; background-color: grey;">
+                <div style="margin-bottom: 50px; margin-top: 35px;" class="row justify-content-center">
+                  <div class="col">
+                    <label style="color: white;" for="range<%= i %> -1" class="form-label">Very Bad</label>
+                  </div>
+                  <div class="col-10">
+                    <input type="range" class="form-range" min="0" max="4" step="1" name="a<%=i%>" id="range<%= i %>"
+                      value="<%= scale[i] %>">
+                  </div>
+                  <div class="col">
+                    <label style="color: white;" for="range<%= i %> -2" class="form-label">Excellent</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <% } %>
+
+            <% } %>
+            <div>
+              <div class="row justify-content-end">
+                <div class="col-1">
+                  <button class="btn btn-primary" style="margin-bottom: 50px; margin-top: 50px;" type="submit">
+                    <i class="fas fa-edit"></i> Submit</button>
+                </div>
+                <div class="col-1">
+                  <a href="/public-surveys" style="margin-bottom: 50px; margin-top: 50px;" class="btn btn-warning">
+                    <i class="fas fa-undo"></i> Cancel</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<br /><br /><br />

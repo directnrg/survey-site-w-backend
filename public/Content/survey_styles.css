@@ -1,0 +1,407 @@
+/* custom css*/
+.circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    border: none;
+}
+
+.text {
+    font-size: 20px;
+    color: #ffffffba;
+    font-weight: 500;
+}
+
+.circle1 {
+    background-color: #faefd1;
+}
+
+.circle2 {
+    background-color: #f3e5f5;
+}
+
+.circle3 {
+    background-color: #e5fae9;
+}
+
+.about {
+    font-size: 14px;
+    font-weight: 35px;
+    color: #c4c6cc;
+}
+
+.learnmore1 {
+    font-size: 18px;
+    font-weight: 50px;
+    color: #fec734;
+}
+
+.learnmore2 {
+    font-size: 18px;
+    font-weight: 50px;
+    color: #fd9790;
+}
+
+.learnmore3 {
+    font-size: 18px;
+    font-weight: 50px;
+    color: #4db6ac;
+}
+
+.circle1 .fa-chrome {
+    color: #fec734;
+    font-size: 40px;
+}
+
+.circle2 .fa-chrome {
+    color: #fd9790;
+    font-size: 40px;
+}
+
+.circle3 .fa-chrome {
+    color: #42a593;
+    font-size: 40px;
+}
+
+
+/* End */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.mainTitles {
+    color: white;
+}
+
+/* Style inputs . 
+  This css code is used for contact page form
+  Source: w3schools.com
+  */
+
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type="submit"] {
+    background-color: #04aa6d;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+/* Style the container/contact section */
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+
+/* Create two columns that float next to eachother */
+
+.column {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+    padding: 20px;
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+    .column,
+    input[type="submit"] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+
+.navbar-brand {
+    margin-left: 10px;
+}
+
+.active {
+    font-weight: 900;
+    color: #a9aaae;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #ffff;
+}
+
+.nav-item {
+    margin-top: 2% !important;
+}
+
+
+/* .log {
+  margin-left: 180px;
+} */
+
+.container {
+    background-color: black !important;
+}
+
+.container-fluid {
+    background-color: black !important;
+}
+
+.fill {
+    color: #ffff;
+    margin-top: 80px;
+}
+
+.btn1 {
+    margin-top: 90px;
+    padding-left: 9%;
+    padding-right: 9%;
+}
+
+.bgsurvey {
+    background-image: url("../Assets/images/home.png");
+    width: 100%;
+    height: auto;
+}
+
+.cl {
+    border-radius: 2%;
+    height: 200px;
+    overflow: hidden;
+    color: #ffff;
+}
+
+.c1 {
+    background-color: #1b7ced;
+}
+
+.c2 {
+    background-color: #1663be;
+}
+
+.c3 {
+    background-color: #104a8e;
+}
+
+.image {
+    height: auto;
+    float: right;
+}
+
+img {
+    border-radius: 50%;
+  }
+
+
+/* style for login page */
+
+.loginbox {
+    width: 550px;
+    height: 450px;
+    color: #fff;
+    top: 60%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+}
+
+.loginlogo {
+    width: 20%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-img {
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logintitle {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    top: -15%;
+}
+
+.navbar-toggler-icon {
+    background-color: rgb(44, 85, 218);
+}
+
+.nav-item-s {
+    margin-left: 60px;
+}
+
+.navbar-text {
+    color: rgb(51, 87, 206);
+    margin-left: 100px;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.popup:hover {
+    position: relative;
+    top: -25px;
+    width: 100%;
+    height: auto;
+    display: block;
+    z-index: 999;
+}
+
+.popup2:hover {
+    position: relative;
+    transform: scale(1.2);
+    display: block;
+    z-index: 999;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.newsurvey {
+    animation-name: newsurvey;
+    animation-duration: 0.75s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+
+/*.groupRow{
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  width: 100%;
+}
+*/
+
+.column {
+    color: white;
+}
+
+@keyframes newsurvey {
+    0% {
+        color: #1b7ced;
+        transform: scale(1);
+    }
+    25% {
+        color: #1663be;
+        transform: scale(1.025);
+    }
+    50% {
+        color: #104a8e;
+        transform: scale(1.05);
+    }
+    75% {
+        color: #0096ff;
+        transform: scale(1.025);
+    }
+    100% {
+        color: #0047ab;
+        transform: scale(1);
+    }
+}
+
+.welcome {
+    animation-name: welcome;
+    animation-duration: 0.75s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes welcome {
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(1.02);
+    }
+    15% {
+        transform: scale(1.04);
+    }
+    20% {
+        transform: scale(1.06);
+    }
+    25% {
+        transform: scale(1.08);
+    }
+    30% {
+        transform: scale(1.1);
+    }
+    45% {
+        transform: scale(1.1);
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    75% {
+        transform: scale(1.08);
+    }
+    80% {
+        transform: scale(1.06);
+    }
+    85% {
+        transform: scale(1.04);
+    }
+    90% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#swoosh {
+    margin-left: -50px;
+}
+
+#swoosh {
+    margin-right: -1000px;
+}
